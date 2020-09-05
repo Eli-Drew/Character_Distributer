@@ -11,8 +11,6 @@ of characters, numbers vs strings, etc)
 ======================================
 """
 import random
-    #just random change for git
-
 
 def readfile():
     """Reads a text file to populate characters."""
@@ -72,22 +70,27 @@ def create_character_list(tier_letter):
     print()
     return character_list
 
-def assign_characters(character_list, users):
-    """This evenly distributes characters to users"""
+def assign_characters(character_list, num_chars, remainder):
+    """This evenly distributes characters to users."""
     assigned_list = []
-    #random.shuffle(character_list)
     
-    num_of_characters = len(character_list) // users
-    remainder = len(character_list) % users
-    if remainder != 0:
-        num_of_characters += 1
 
-    for x in range(num_of_characters):
-        pop_index = random.randint(0,len(character_list) -1)
-        character = character_list.pop(pop_index)
+    for x in range(num_chars):
+        characters_left = len(character_list)
+        if characters_left <= 0:
+            break
+        pop_index = random.randint(1,characters_left)
+        character = character_list.pop(pop_index - 1)
         assigned_list.append(character)
 
-    return assigned_list, character_list
+
+    if remainder != 0:
+        character = character_list.pop()
+        assigned_list.append(character)
+        remainder -= 1
+            
+
+    return assigned_list, character_list, remainder
 
 def print_list(lst):
     """Prints list in a desirable way."""
@@ -100,20 +103,24 @@ def main():
 
     tier_A_characters, tier_B_characters, tier_C_characters = readfile()
 
-##    tier_A_characters = create_character_list("Tier A")
-##    tier_B_characters = create_character_list("Tier B")
-##    tier_C_characters = create_character_list("Tier C")
-##    print(tier_A_characters)
-##    print()
-##
-##    print(tier_B_characters)
-##    print()
-##
-##    print(tier_C_characters)
-##    print()
+    random.shuffle(tier_A_characters)
+    random.shuffle(tier_B_characters)
+    random.shuffle(tier_C_characters)
+
 
     users = int(input("How many people are reading?: "))
-
+    amount_chars_A = (len(tier_A_characters)) // users
+    remainder_A = (len(tier_A_characters)) % users
+    index_A = 0
+    
+    amount_chars_B = (len(tier_B_characters)) // users
+    remainder_B = (len(tier_B_characters)) % users
+    index_B = 0
+    
+    amount_chars_C = (len(tier_C_characters)) // users
+    remainder_C = (len(tier_C_characters)) % users
+    index_C = 0
+    
 
     #this for loop with give character lists for users
     for x in range(users):
@@ -121,13 +128,21 @@ def main():
         print("=" * 50)
         user_name = input("Enter the player's name: ")
         #fix math for character distribution
-        user_list_A, tier_A_characters = assign_characters(tier_A_characters, users)
+
+        
+        user_list_A, tier_A_characters, remainder_A = assign_characters(tier_A_characters,
+                                                           amount_chars_A,
+                                                           remainder_A)
         print_list(user_list_A)
 
-        user_list_B, tier_B_characters = assign_characters(tier_B_characters, users)
+        user_list_B, tier_B_characters, remainder_B = assign_characters(tier_B_characters,
+                                                           amount_chars_B,
+                                                           remainder_B)
         print_list(user_list_B)
 
-        user_list_C, tier_C_characters = assign_characters(tier_C_characters, users)
+        user_list_C, tier_C_characters, remainder_C = assign_characters(tier_C_characters,
+                                                           amount_chars_C,
+                                                           remainder_C)
         print_list(user_list_C)
                                     
 
