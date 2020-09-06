@@ -74,7 +74,8 @@ def assign_characters(character_list, num_chars, remainder):
     """This evenly distributes characters to users."""
     assigned_list = []
     
-
+    #removes characters from original list once they're added to
+    #the user. both lists are sent back.
     for x in range(num_chars):
         characters_left = len(character_list)
         if characters_left <= 0:
@@ -83,7 +84,7 @@ def assign_characters(character_list, num_chars, remainder):
         character = character_list.pop(pop_index - 1)
         assigned_list.append(character)
 
-
+    #handling uneven distribution of characters. 
     if remainder != 0:
         character = character_list.pop()
         assigned_list.append(character)
@@ -103,11 +104,13 @@ def main():
 
     tier_A_characters, tier_B_characters, tier_C_characters = readfile()
 
+    #shuffles list of characters
     random.shuffle(tier_A_characters)
     random.shuffle(tier_B_characters)
     random.shuffle(tier_C_characters)
 
-
+    #keeps track of remainder and how many characters
+    #each user gets. handles uneven distribution.
     users = int(input("How many people are reading?: "))
     amount_chars_A = (len(tier_A_characters)) // users
     remainder_A = (len(tier_A_characters)) % users
@@ -127,19 +130,22 @@ def main():
 
         print("=" * 50)
         user_name = input("Enter the player's name: ")
-        #fix math for character distribution
 
-        
+        #sends orignial list and remainder number. returns user list and remainder
         user_list_A, tier_A_characters, remainder_A = assign_characters(tier_A_characters,
                                                            amount_chars_A,
                                                            remainder_A)
         print_list(user_list_A)
 
+        
+        #sends orignial list and remainder number. returns user list and remainder
         user_list_B, tier_B_characters, remainder_B = assign_characters(tier_B_characters,
                                                            amount_chars_B,
                                                            remainder_B)
         print_list(user_list_B)
 
+        
+        #sends orignial list and remainder number. returns user list and remainder
         user_list_C, tier_C_characters, remainder_C = assign_characters(tier_C_characters,
                                                            amount_chars_C,
                                                            remainder_C)
