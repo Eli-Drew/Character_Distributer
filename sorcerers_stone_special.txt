@@ -1,0 +1,27 @@
+Tier A
+Harry Potter
+Vernon Dursley
+Petunia Dursley
+Dudley Dursley
+
+Tier B
+Lily Potter
+James Potter
+Ginny Weasley
+Marcus Flint
+Crabbe
+Goyle
+Goblin at Desk
+Griphook
+Fat Lady
+Guard at Train Station
+
+Tier C
+Hedwig
+Scabbers
+Troll
+Fluffy
+Norbert
+Mrs. Norris
+Fang
+Snake at Zoo
