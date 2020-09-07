@@ -12,7 +12,7 @@ This program will address the input validation
 issues that the first program had.
 =======================================
 """
-
+import random
 import numpy as np
 
 #================================================================
@@ -44,6 +44,11 @@ def readfile():
     return character_lists[0], character_lists[1], character_lists[2]
 
 #================================================================
+def character_assigner(lyst1, lyst2):
+    """This function uses assigns charactes to people."""
+    
+
+#================================================================
 def print_list(lst):
     """Prints list in a desirable way."""
     delimiter = ""
@@ -53,3 +58,18 @@ def print_list(lst):
 #================================================================
 def main():
     """Main function of program. Starting point."""
+    char_list_A, char_list_B, char_list_C = readfile()
+    
+    random.shuffle(char_list_A)
+    random.shuffle(char_list_B)
+    random.shuffle(char_list_C)
+
+    lenA = len(char_list_A)
+    lenB = len(char_list_B)
+    lenC = len(char_list_C)
+
+    trackA = np.zeros(lenA)
+    trackB = np.zeros(lenB)
+    trackC = np.zeros(lenC)
+
+    
