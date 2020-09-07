@@ -46,6 +46,8 @@ def readfile():
 #================================================================
 def character_assigner(lyst1, lyst2):
     """This function uses assigns charactes to people."""
+    user_lyst = []
+    
     
 
 #================================================================
@@ -72,4 +74,14 @@ def main():
     trackB = np.zeros(lenB)
     trackC = np.zeros(lenC)
 
+    y = True
+    while(y)
+        try: 
+            users = int(input("How many people are reading?: "))
+            y = False
+        except:
+            print("That wasn't an integer. Please try again.\n")
+
+    
+        
     
