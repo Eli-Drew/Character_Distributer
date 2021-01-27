@@ -16,10 +16,12 @@ def readfile():
     """Reads a text file to populate characters."""
 
     character_lists = [[],[],[]]
-    
+    valid_input = False
+
     file = input("Enter the movie text file you want to use: ")
     f = open(file + ".txt" , 'r')
 
+  
     list_name = 0
     
     for line in f:
