@@ -5,7 +5,11 @@ body {
 /* class styles */
 
 .tier_column {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    color: #f1ff5c;
 }
 
 .tier_header {
@@ -55,4 +59,9 @@ body {
 #title {
     text-align: center;
     color: #f4ed0c;
+}
+
+#body {
+    display: flex;
+    justify-content: space-around;
 }
