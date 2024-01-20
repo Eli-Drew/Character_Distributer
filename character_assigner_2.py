@@ -75,7 +75,7 @@ def main():
     trackC = np.zeros(lenC)
 
     y = True
-    while(y)
+    while(y):
         try: 
             users = int(input("How many people are reading?: "))
             y = False
